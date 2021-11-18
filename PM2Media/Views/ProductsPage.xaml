@@ -7,31 +7,6 @@
         <StackLayout>
             <Button Text="Consumir API Movil" x:Name="btnApiMovil" Clicked="btnApiMovil_Clicked"></Button>
             <Image x:Name="ImagenPath"></Image>
-
-            <ListView x:Name="listaProductos" HorizontalOptions="FillAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-
-                                <Grid.ColumnDefinitions >
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-
-                                <Label Grid.Row="0" Grid.Column="0" Text="Probando" FontAttributes="Bold"></Label>
-
-                                <Image Source="{Binding newBytes}" Grid.Row="0" Grid.Column="1" WidthRequest="30" HeightRequest="30"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
         </StackLayout>
         
     </ContentPage.Content>

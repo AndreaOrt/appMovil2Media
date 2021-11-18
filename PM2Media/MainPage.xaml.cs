@@ -42,15 +42,6 @@ namespace PM2Media
             //await DisplayAlert("File Location", file.Path, "OK");
 
             pathFoto.Text = file.AlbumPath;
-            
-            //convertir a arreglo de bytes
-            /*byte[] fileByte = System.IO.File.ReadAllBytes(file.AlbumPath);
-            Debug.WriteLine("En Bytes: " + fileByte);*/
-
-            //convertir a base64
-            //string pathBase64 = Convert.ToBase64String(fileByte);
-
-            //txtAnother.Text = Convert.ToString(Convert.FromBase64String(pathBase64));
 
             fotografia.Source = ImageSource.FromStream(() =>
             {
@@ -65,7 +56,7 @@ namespace PM2Media
 
             if (!CrossMedia.Current.IsPickPhotoSupported)
             {
-                await DisplayAlert("Alerta", "No se puede elegir una foto", "OK");
+                await DisplayAlert("Alerta", "No se puede elegir una foto de la galeria", "OK");
                 return;
             }
 
@@ -83,43 +74,5 @@ namespace PM2Media
             });
         }
 
-        private async void btnRestApi_Clicked(System.Object sender, System.EventArgs e)
-        {
-            byte[] fileByte = System.IO.File.ReadAllBytes(pathFoto.Text);
-            Debug.WriteLine("En Bytes: " + fileByte);
-
-            //convertir a base64
-            string pathBase64 = Convert.ToBase64String(fileByte);
-
-            var user = new Models.ApiMovil2.Empleado
-            {
-                Name = "Test2",
-                Location = 1,
-                user_image = pathBase64
-            };
-
-            await CreateEmple(user);
-        }
-
-        //Metodo POST
-        public async static Task CreateEmple(Models.ApiMovil2.Empleado user)
-        {
-            String jsonContent = JsonConvert.SerializeObject(user);
-            StringContent contenido = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
-
-            using (HttpClient cliente = new HttpClient())
-            {
-                HttpResponseMessage response = await cliente.PostAsync("https://movil2.herokuapp.com/principal/insert/user/account/", contenido);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    Debug.WriteLine("Empleado creado");
-                }
-                else
-                {
-                    Debug.WriteLine("Error!");
-                }
-            }
-        }
     }
 }

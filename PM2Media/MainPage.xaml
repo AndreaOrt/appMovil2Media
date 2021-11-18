@@ -26,8 +26,7 @@
 
             <Button x:Name="btnTomarFoto" Text="Tomar Foto" Clicked="btnTomarFoto_Clicked"/>
 
-            <Button x:Name="btnRestApi" Text="Guardar" Clicked="btnRestApi_Clicked"/>
-            <Button x:Name="btnElegirFoto" Text="Elegir Foto" Clicked="btnElegirFoto_Clicked"/>
+            <Button x:Name="btnElegirFoto" Text="Elegir Foto Galeria" Clicked="btnElegirFoto_Clicked"/>
 
             <Image x:Name="fotografia"/>
 

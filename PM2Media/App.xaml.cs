@@ -10,8 +10,8 @@ namespace PM2Media
         {
             InitializeComponent();
 
-            //MainPage = new MainPage();
-            MainPage = new Views.ProductsPage();
+            MainPage = new MainPage();
+            
         }
 
         protected override void OnStart()
